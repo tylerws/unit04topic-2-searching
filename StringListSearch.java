@@ -22,7 +22,7 @@ public class StringListSearch {
                 }
             }
         }
-        return index;
+        return -1;
     }
 
     public static int orderedLinearSearch(ArrayList<String> items, String term) {
@@ -42,7 +42,41 @@ public class StringListSearch {
                 }
             }
         }
-        return index;
+        return -1;
+    }
+
+    public static int orderedBinarySearch(ArrayList<String> items, String term) {
+        int index = 0;
+        boolean identified = false;
+        int midpoint = items.size() / 2;
+        int min = 0;
+        int max = items.size();
+        if (term.compareTo(items.get(midpoint)) <= 0) {
+            for (int i = min; i < midpoint; i++) {
+                String curSection = items.get(i);
+                if (term.equals(curSection)) {
+                    identified = true;
+                }
+                if (identified == false) {
+                    index++;
+                } else {
+                    return index;
+                }
+            }
+        } else {
+            for (int i = midpoint; i < max; i++) {
+                String curSection = items.get(i);
+                if (term.equals(curSection)) {
+                    identified = true;
+                }
+                if (identified == false) {
+                    index++;
+                } else {
+                    return index;
+                }
+            }
+        }
+        return -1;
     }
 
     public static void main(String[] args) {
