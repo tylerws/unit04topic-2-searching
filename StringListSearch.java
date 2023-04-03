@@ -9,25 +9,42 @@ public class StringListSearch {
         while (index < items.size()) {
             System.out.println("currently looking at index " + index);
             String curSection = "";
-            
+
             for (int i = 0; i < items.size(); i++) {
                 curSection = items.get(i);
                 if (term.equals(curSection)) {
-                identified = true;
+                    identified = true;
+                }
+                if (identified == false) {
+                    index++;
+                } else {
+                    return index;
+                }
             }
-            if (identified == false) {
-                index++;
-            } else {
-                return index;
-            }
-            }
-            }
-            return index;
-            }
-            
-        
+        }
+        return index;
+    }
 
-    
+    public static int orderedLinearSearch(ArrayList<String> items, String term) {
+        int index = 0;
+        boolean identified = false;
+        while (index < items.size() && items.get(index).compareTo(term) <= 0) {
+
+            for (int i = 0; i < items.size(); i++) {
+                String curSection = items.get(i);
+                if (term.equals(curSection)) {
+                    identified = true;
+                }
+                if (identified == false) {
+                    index++;
+                } else {
+                    return index;
+                }
+            }
+        }
+        return index;
+    }
+
     public static void main(String[] args) {
         ArrayList<String> inputItems;
         String inputTerm;
