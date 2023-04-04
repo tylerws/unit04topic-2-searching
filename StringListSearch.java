@@ -80,15 +80,6 @@ public class StringListSearch {
     }
 
     public static void main(String[] args) {
-        ArrayList<String> inputItems;
-        String inputTerm;
-        int expectedOutput;
-        int actualOutput;
-
-        // some positive numbers
-        inputItems = new ArrayList<>(Arrays.asList("there", "is", "the", "mountain"));
-        inputTerm = "the";
-        expectedOutput = 2;
-        actualOutput = StringListSearch.unorderedSearch(inputItems, inputTerm);
+        
     }
 }
